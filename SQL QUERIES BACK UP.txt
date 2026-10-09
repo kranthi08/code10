@@ -1,0 +1,485 @@
+select * from claim_core cc where cc.claim_id = '255640017611';
+
+SELECT t.custId,t.custId_new, t.clientId, t.clientId_new, ptrd.request_data_txt
+    FROM (
+	    SELECT cc.customer_id as custId,
+	    cc.client_id AS clientId,
+	    LPAD(cc.customer_id::TEXT, 4, '0') AS custId_new,
+	    LPAD(cc.client_id::TEXT,4,'0') AS clientId_new
+	    FROM claimsprocess_humana.claim_core cc
+	    where cc.alternate_business='R' or cc.alternate_business='Q'
+    ) AS t
+    inner join claimsprocess_humana.pos_transaction_raw_data ptrd
+    on t.custId =  ptrd.submitted_customer_id
+    and ptrd.response_data_txt like '%ANP%'
+	and ptrd.request_data_txt not like '%AM05%'
+	and ptrd.request_data_txt not like '%AM10%'
+	and ptrd.submitted_customer_id In('0319','0320') order by ptrd.transaction_id desc limit 1;
+	
+select cc.alternate_business from claimsprocess_humana.claim_core cc where cc.claim_id in ('256960000311','256960000371'); -- '' and cc.customer_id ='0544' and cc.submitted_member_id ='25R4544M01' limit 1;
+SELECT * 
+  from claimsprocess.claimsprocess_humana.claim_core cc
+  WHERE
+  cc.record_source_ind ='H'
+  --AND cc.process_create_by_device ='DMRDOMNI'
+  --AND cc.cob_ind IN ('2','4','8') 
+  --AND cc.claim_status_cd ='10'
+  --AND cc.npi_pharmacy_id Is Not Null 
+  --AND cc.domani_ind ='true'
+  AND cc.customer_id ='320'
+ORDER BY cc.process_create_ts DESC
+LIMIT 1;
+
+SELECT * 
+  FROM claimsprocess_other.claim_core cc
+  left join claimsprocess_other.claim_extension_1 ce on
+  cc.customer_id = ce.customer_id 
+  WHERE
+  cc.record_source_ind ='H'
+  AND cc.process_create_by_device ='DMRDOMNI'
+  AND ce.other_coverage_cd IN('2','4','8') 
+  AND cc.claim_status_cd ='10'
+  AND cc.npi_pharmacy_id Is Not Null 
+  AND cc.domani_ind ='true'
+  AND cc.customer_id ='1764'
+ORDER BY cc.process_create_ts DESC
+LIMIT 1;
+
+select * from claimsprocess_other.claim_core cc where claim_id ='257440000021';
+
+SELECT json_build_object(
+    'customerId', json_agg(cc.customer_id),
+    'memberId', cc.member_id 
+) AS user_data
+FROM claimsprocess_humana.claim_core cc 
+where cc.customer_id in ('319','320') 
+GROUP BY cc.customer_id,cc.member_id,cc.process_create_ts
+order By cc.process_create_ts desc limit 1
+
+select * from claimsprocess.claimsprocess_humana.claim_core cc order by process_create_ts desc;
+
+SELECT customer_id,claim_id,client_id,group_id,member_id,claim_status_cd from claim_core cc 
+where cc.member_id = '000000011122444400' and claim_status_cd = '10' and customer_id='1628';
+
+select * from claim_core cc where claim_id = '255410056531';
+
+select * from claim_core cc where member_id ='000000020250618101' and claim_status_cd = '10';
+
+select * from claim_message_tracking cmt where claim_id = '255680004571';
+
+select * from pos_transaction_raw_data ptrd where transaction_id ='25157013394';
+
+select * from pos_transaction_formatted_claim_detail ptfcd where claim_id ='255570133941';
+
+select * from claim_core cc where member_id = '000000020250603101' and claim_status_cd = '10' and customer_id ='1628';
+
+select * from claimsprocess_other.accum_member_claim_detail amcd ;
+select * from claimsprocess_other.accum_claim_history ach ;
+select * from claimsprocess_other.accum_member_info ami;
+select * from claimsprocess_other.pos_transaction_formatted ptf where ptf.submitted_customer_id ='1628';
+select *  from claimsprocess_other.pos_transaction_formatted_claim_detail ptfcd 
+				where ptfcd.submitted_customer_id ='1628' and ptfcd.claim_status_cd ='10' limit 1;
+			
+select * from claimsprocess_other.pos_transaction_raw_data ptrd where ptrd.submitted_customer_id ='1628';	
+
+select * from claimsprocess_other.pos_transaction_formatted ptf ;
+
+select ptfcd.transaction_id from claimsprocess_other.pos_transaction_formatted_claim_detail ptfcd where ptfcd.claim_id ='255140010191';
+
+select * from claimsprocess_other.pos_transaction_raw_data ptrd where transaction_id = '25114001019';
+
+select claim_id from claimsprocess.claimsprocess_other.claim_core cc where cc.customer_id = '1628' and 
+					cc.process_create_by_program_id ='POS' and cc.claim_status_cd =10 limit 1;
+
+select ptrd.request_data_txt from claimsprocess_other.pos_transaction_raw_data ptrd where 
+	   ptrd.transaction_id in (select ptfcd.transaction_id from claimsprocess_other.pos_transaction_formatted_claim_detail ptfcd where ptfcd.claim_id ='247330016241');
+	  
+select ptrd.request_data_txt from claimsprocess_other.pos_transaction_raw_data ptrd left join claimsprocess_other.pos_transaction_formatted_claim_detail ptfcd on ptfcd.transaction_id = ptrd.transaction_id where ptfcd.claim_id ='256860000011';
+
+select * from claimsprocess_humana.claim_core cc where cc.customer_id ='320' and cc.client_id ='8888' and cc.alternate_business !='Q' and cc.claim_id='256900001481';
+select * from claimsprocess_humana.claim_module_flow cmf where cmf.pcn = 'MPPP      ' order by claim_module_flow_id;
+select * from claimsprocess_other.claim_core cc where cc.alternate_business ='V' and claim_status_cd ='10' order by process_create_ts desc;
+
+select * from claimsprocess_other.pos_transaction_raw_data ptrd left join
+claimsprocess_other.pos_transaction_formatted_claim_detail ptfcd
+on ptfcd.transaction_id = ptrd.transaction_id
+where ptfcd.claim_id ='256980035331' limit 1;
+
+select * from claimsprocess.claimsprocess_other.claim_module_flow cmf where cmf.bin='600428';
+
+select * from claimsprocess.claimsprocess_other.claim_core cc where cc.claim_id ='256980035331';
+select * from claimsprocess.claimsprocess_other.claim_core cc where cc.member_id ='000000020250618104' and cc.claim_status_cd ='10';
+
+select * from claimsprocess.claimsprocess_other.claim_module_flow cmf where cmf.pcn='16370000';
+select * from claimsprocess.claimsprocess_other.pos_transaction_raw_data ptrd where request_data_txt like '%1637%';
+
+select * from claimsprocess.claimsprocess_other.claim_core cc where cc.submitted_patie;
+
+select * from claimsprocess.claimsprocess_other.claim_extension_1 ce1 where ce1.submitted_patient; ;
+
+select * from claimsprocess.claimsprocess_other.claim_extension_2 ce; ;
+
+s
+select cc.record_source_ind, 
+	   cc.customer_id, 
+	   cc.claim_id,	   
+	   cc.submitted_ingredient_cost_amt as Submitted_IngredientCost,
+	   cc.submitted_dispense_fee_amt as Submitted_DispenseFee, 
+	   cc.submitted_incentive_amt as Submitted_IncentiveVaccineAdminAmount,
+	   cc.submitted_professional_service_fee_amt as Submitted_ProfessionalServiceFee, 
+	   null, 
+	   ce1.flat_sales_tax_submitted_amt as Submitted_FlatSalesTax, 
+	   ce1.percentage_sales_tax_submitted_amt as Submitted_PercentageSalestax, 
+	   cc.submitted_ingredient_cost_amt as Sumitted_GrossAmountDueTotalCost,
+       null, 
+       ce1.submitted_other_payer_total_amt,
+       null,
+       cc.calculated_submitted_balance_amt as CalculatedBalance,
+	   cc.usual_and_customary_amt as UsualandCustomaryUAndCAmount,
+	   cc.total_paid_amt as TotalAmountPaid,
+	   cc.plan_ingredient_cost_amt, 
+	   cc.plan_dispense_fee_amt, 
+	   cc.incentive_paid_amt, 
+	   cc.paid_professional_service_amt, 
+	   null,
+	   ce1.flat_sales_tax_paid_amt, 
+	   ce1.percent_sales_tax_paid_amt, 
+	   cc.plan_ingredient_cost_amt as Paid_Gross_Amount_Due_Total_Cost,	   
+	   cc.plan_calculated_copay_plus_coins_amt,
+	   ce1.other_payer_recognized_amt,	   
+	   ce1.negotiated_patient_pay_amt	   
+	   from claimsprocess.claim_core cc
+       inner join claimsprocess.claim_extension_1 ce1 on cc.customer_id = ce1.customer_id and cc.claim_id = ce1.claim_id      
+       where cc.customer_id=1628 and cc.claim_id='246070000571';
+
+select * from claimsprocess.claimsprocess_other.claim_core cc;
+select * from claimsprocess.claimsprocess_other.claim_extension_1 ce1;
+select * from claimsprocess.claimsprocess_other.claim_extension_2 ce2 where ce2.paid_date
+
+Select * from claimsprocess.claimsprocess_humana.pos_transaction_raw_data ptrd
+left join claimsprocess.claimsprocess_humana.pos_transaction_formatted_claim_detail ptfcd on 
+ptfcd.transaction_id = ptrd.transaction_id where ptfcd.claim_id ='000000000000' limit 1;
+select * from claimsprocess.claimsprocess_other.claim_dur_history cdh ;
+
+select ccpu.pricing_source_cd from claimsprocess.claimsprocess_other.claim_client_pricing_unit ccpu where ccpu.customer_id = '1628';
+select * from claimsprocess.claimsprocess_other
+--===================== Only columns -----------
+SELECT column_name
+FROM information_schema.columns
+WHERE table_schema = 'claimsprocess_other'
+  AND table_name = 'claim_address';
+
+
+ 
+
+
+select * from claimsprocess_other.claim_core cc where cc.claim_id = '257140011551' and cc.claim_status_cd ='10';
+
+select * from claimsprocess_other.claim_core cc where cc.customer_id ='1628' and cc.claim_status_cd ='10';
+-- ========================================================================================================
+SELECT 
+    coa.claim_other_amount_paid_sequence_id AS claimOtherAmountPaidSequenceId,
+    coa.claim_other_amount_paid_amt AS claimOtherAmountPaidAmt,
+    coa.claim_other_amount_paid_type_cd AS claimOtherAmountPaidTypeCd
+FROM claim_other_amount_paid coa
+WHERE coa.customer_id = '1628'
+  AND coa.claim_id = '257140011551'
+ORDER BY coa.claim_other_amount_paid_sequence_id ASC;
+
+SELECT 
+    cc.member_id AS memberId,
+    cc.client_id AS clientId,
+    cc.group_id AS groupId,
+    cc.coverage_cd_1 AS coverageCd1,
+    cc.coverage_cd_2 AS coverageCd2,
+    cc.fill_dt AS fillDt,
+    cc.deductible_system_ind AS deductibleSystemInd,
+    cc.member_deductible_plan_ind AS memberDeductiblePlanInd,
+    cc.deductible_status_ind AS deductibleStatusInd,
+    cc.deductible_status_ind_2 AS deductibleStatusInd2,
+    cc.deductible_applied_ingredient_cost_amt AS deductibleAppliedIngredientCostAmt,
+    cc.deductible_applied_dispense_fee_amt AS deductibleAppliedDispenseFeeAmt,
+    cc.deductible_applied_sales_tax_amt AS deductibleAppliedSalesTaxAmt,
+    cc.deductible_specific_amt AS deductibleSpecificAmt,
+    cc.mop_specific_amt AS mopSpecificAmt,
+    cc.mpp_specific_excluded_amt AS mppSpecificExcludedAmt,
+    cc.plan_maximum_specific_amt AS planMaximumSpecificAmt,
+    cc.member_deductible_applied_amt AS memberDeductibleAppliedAmt,
+    cc.plan_deductible_applied_amt AS planDeductibleAppliedAmt,
+    cee.accumulated_deductible_amt AS accumulatedDeductibleAmt,
+    cee.exceeding_period_benefit_maximum_amt AS exceedingPeriodBenefitMaximumAmt,
+    cee.remaining_benefit_amt AS remainingBenefitAmt,
+    ccbi.rxnova_component_id_data_json AS rxnovaComponentIdDataJson,
+    cc.postpay_ind_3 AS postpayInd3,
+    cc.postpay_ind_4 AS postpayInd4,
+    cc.alternate_business AS alternateBusiness
+FROM claim_core cc
+JOIN claim_extension_1 cee 
+    ON cc.customer_id = cee.customer_id 
+   AND cc.claim_id = cee.claim_id
+LEFT JOIN claim_component_block_information ccbi ON cc.customer_id = ccbi.customer_id AND cc.claim_id = ccbi.claim_id
+WHERE cc.customer_id = '1628' and cc.claim_id = '257140011551';
+
+select * from claimsprocess_humana.claim_component_block_information ccbi where ccbi.claim_id ='253317800021';
+
+
+select * from claimsprocess_humana.claim_compound_ndc_details ccnd where ccnd.claim_id = '253317800021';
+select * from claimsprocess_humana.claim_compound_client_pricing cccp where cccp.claim_id = '253317800021';
+
+select
+	cc.customer_id,
+	cc.claim_id,
+    cc.npi_pharmacy_id,
+    cc.pharmacy_id_qualifier,
+    cc.submitted_prescriber_id,
+    cc.prescriber_id_qualifier_cd,
+    cc.refill_nbr,
+    cc.submitted_metric_decimal_qty,
+    cc.submitted_days_supply_cnt,
+    cc.submitted_total_prescription_cost_amt,
+    ccp.ingredient_id,
+    ccp.compound_product_id_type_cd,
+    ccp.ingredient_quantity_cnt,
+    ccp.ingredient_cost_amt,
+    ccp.ingredient_cost_basis_cd
+FROM claimsprocess_humana.claim_core cc
+right JOIN claimsprocess_humana.claim_compound_product ccp 
+    ON cc.customer_id = ccp.customer_id
+    AND cc.claim_id = ccp.claim_id
+WHERE cc.record_source_ind = 'H'
+  AND cc.process_create_by_device = 'DMRDOMNI'
+  AND cc.pharmacy_id is not null 
+  AND cc.claim_status_cd = '10'
+  AND cc.npi_pharmacy_id IS NOT NULL
+  AND cc.domani_ind = 'true'
+  AND cc.customer_id = '320'
+ORDER BY cc.process_create_ts DESC;
+	
+select 
+ccp.ingredient_id,
+ccp.compound_product_id_type_cd,
+ccp.ingredient_quantity_cnt,
+ccp.ingredient_cost_amt,
+ccp.ingredient_cost_basis_cd 
+from claimsprocess_humana.claim_compound_product ccp where ccp.claim_id ='253317800021';
+
+SELECT
+    cc.customer_id,
+    cc.claim_id,
+    cc.npi_pharmacy_id,
+    cc.pharmacy_id_qualifier,
+    cc.submitted_prescriber_id,
+    cc.prescriber_id_qualifier_cd,
+    cc.refill_nbr,
+    cc.submitted_metric_decimal_qty,
+    cc.submitted_days_supply_cnt,
+    cc.submitted_total_prescription_cost_amt,
+    ccp.ingredient_id,
+    ccp.compound_product_id_type_cd,
+    ccp.ingredient_quantity_cnt,
+    ccp.ingredient_cost_amt,
+    ccp.ingredient_cost_basis_cd
+FROM claimsprocess_humana.claim_core cc
+RIGHT JOIN claimsprocess_humana.claim_compound_product ccp
+    ON cc.customer_id = ccp.customer_id
+    AND cc.claim_id = ccp.claim_id
+WHERE cc.record_source_ind = 'H'
+  AND cc.process_create_by_device = 'DMRDOMNI'
+  AND cc.pharmacy_id IS NOT NULL
+  AND cc.claim_status_cd = '10'
+  AND cc.npi_pharmacy_id IS NOT NULL
+  AND cc.domani_ind = 'true'
+  AND cc.customer_id = 320
+ORDER BY cc.process_create_ts DESC;
+
+select * from claimsprocess_other.dmr_letter_participants dlp where customer_id='1615';
+select cc.other_payer_recognized_amt  from claimsprocess_other.claim_core cc where cc.claim_id ='246070000571';
+select ce.other_coverage_cd  from claimsprocess_other.claim_extension_1 ce where ce.other_coverage_cd in ('2','4','8') and ce.customer_id ='320';
+
+
+SELECT * 
+  FROM claimsprocess_humana.claim_core cc
+  left join claimsprocess_humana.claim_extension_1 ce on
+  cc.customer_id = ce.customer_id 
+  WHERE
+  cc.record_source_ind ='H'
+  AND cc.process_create_by_device ='DMRDOMNI'
+  AND ce.other_coverage_cd IN('2','4','8') 
+  AND cc.claim_status_cd ='10'
+  AND cc.npi_pharmacy_id Is Not Null 
+  AND cc.domani_ind ='true'
+  AND cc.customer_id ='320'
+ORDER BY cc.process_create_ts DESC
+LIMIT 1;
+
+select * from claimsprocess_other.claim_dur cd order by process_create_ts desc;
+select * from claimsprocess_other.claim_core cc where cc.claim_id = '265460034611';
+select * from claimsprocess_other.claim_core cc where cc.domani_ind=true; order by process_create_ts desc;
+					cc.customer_id = '7746' and 
+					cc.domani_ind is not null order by process_create_ts desc;
+select * from claimsprocess_other.claim_dur_history cdh order by cdh.process_create_ts desc;
+
+select * from claimsprocess_other.claim_core cc where cc.claim_status_cd ='10' and cc.domani_ind='true' and cc.member_history_created_ind='Y';
+
+select cc.customer_id, cc.claim_id, cc.member_id, cc.domani_ind, cc.member_history_created_ind, cc.therapy_protocol_nm 
+from claimsprocess_other.claim_core cc where cc.member_history_created_ind='Y';-- therapy_protocol_ind 
+
+select cc.customer_id, cc.claim_id, cc.member_id, cc.domani_ind, cc.member_history_created_ind, cc.therapy_protocol_nm 
+from claimsprocess_humana.claim_core cc where cc.therapy_protocol_ind='Y';
+
+select ce.customer_id , ce.claim_id , ce.custom_group_id from claimsprocess_other.claim_extension_2 ce where ce.customer_id='1615' and ce.custom_group_id is not null;
+
+			
+select cc.customer_id , cc.claim_id, cc.group_id, cc.used_external_group from claim_core cc where cc.customer_id ='1628';
+
+select domani_formulary_block_id_data_json from claimsprocess_other.claim_component_block_information ccbi 
+where ccbi.customer_id ='320' and ccbi.claim_id = '257440000021';
+
+select * from claimsprocess_other.claim_generic_reporting_indicators cgri where cgri.claim_id ='246070000571';
+
+SELECT * FROM claimsprocess_other.claim_core cc where 
+member_id ='000000020251113101' and 
+claim_status_cd ='10' and 
+customer_id ='1615' order by process_create_ts;
+
+select * from claimsprocess_other.pos_transaction_raw_data ptrd left join
+claimsprocess_other.pos_transaction_formatted_claim_detail ptfcd
+on ptfcd.transaction_id = ptrd.transaction_id
+where ptfcd.claim_id ='255140010191' limit 1;
+--257520036201
+--25351004275
+
+select * from claimsprocess.claimsprocess_other.pos_transaction_raw_data ptrd where ptrd.transaction_id ='25351004275';
+
+select * from claimsprocess.claimsprocess_humana.t_claim_core tcc where tcc.claim_id = '253537800171';
+
+select * from claimsprocess_other.claim_core cc where cc.claim_id = '257140011561';
+select * from claimsprocess_other.claim_extension_1 ce where ce.claim_id = '257140011551';
+select * from claimsprocess_other.claim_extension_2 ce2 where ce2.claim_id = '246070000571';
+select * from claimsprocess_other.claim_generic_reporting_indicators cgri where claim_id = '246070000571';
+
+SELECT * 
+  FROM claimsprocess_humana.claim_core cc
+  WHERE
+  cc.record_source_ind ='H'
+  AND cc.process_create_by_device ='DMRDOMNI'
+  AND cc.claim_status_cd ='10'
+  AND cc.npi_pharmacy_id Is Not Null 
+  AND cc.domani_ind ='true'
+  AND cc.customer_id ='320'
+ORDER BY cc.process_create_ts DESC
+LIMIT 1;
+
+SELECT * 
+  FROM claimsprocess_other.claim_core cc
+  WHERE
+  cc.record_source_ind ='H'
+  AND cc.process_create_by_device ='DMRDOMNI'
+  AND cc.claim_status_cd ='10'
+  AND cc.npi_pharmacy_id Is Not Null 
+  AND cc.domani_ind ='true'
+  AND cc.customer_id ='1785'
+ORDER BY cc.process_create_ts DESC
+LIMIT 1;
+
+select * from claimsprocess.claimsprocess_other.claim_module_flow cmf 
+--where cmf.pcn='dmr' and cmf.transaction_process_type ='B1'
+	order by claim_module_flow_id;
+
+select * from claimsprocess.claimsprocess_humana.claim_module_flow cmf 
+	where cmf.app_claim_source ='UCF' and 
+	      cmf.process_create_by_user_id ='DOMANIRX' and
+	      cmf.transaction_process_type ='B1'
+	order by claim_module_flow_id,process_create_ts;
+
+select record_source_ind from claim_core where claim_id='264070006141';
+
+select * from claimsprocess.claimsprocess_other.pos_transaction_formatted ptf;
+
+select * from claimsprocess_other.claim_core acc where acc.claim_id = '257140011551' and acc.claim_status_cd = '10';
+
+select * from claimsprocess.claimsprocess_humana.claim_core cc where cc.customer_id = '320'
+							and cc.process_create_by_program_id = 'POS'
+							and cc.ndc_id = '00169210011'
+						    order by cc.process_create_ts desc;
+
+
+select * from claim_module_flow where pcn='16150004'  order by process_stage_nbr;
+--select * from claimsprocess.claimsprocess.claim_core cc where cc.claim_id = '255690000291';
+SELECT customer_id,claim_id,client_id,group_id,member_id,claim_status_cd from claim_core cc 
+where cc.member_id = '000000020240901102' and claim_status_cd = '10' and customer_id='1628';
+
+select * from claimsprocess.claimsprocess.claim_core cc where customer_id = '1628';
+select * from claimsprocess.claimsprocess.claim_extension_1 ce where customer_id = '1628';
+
+SELECT 
+    cc.member_id AS memberId,
+    cc.client_id AS clientId,
+    cc.group_id AS groupId,
+    cc.coverage_cd_1 AS coverageCd1,
+    cc.coverage_cd_2 AS coverageCd2,
+    cc.fill_dt AS fillDt,
+    cc.deductible_system_ind AS AccumulatorIndicator,
+    cc.member_deductible_plan_ind AS AccumulatorPlanIndicator,
+    cc.deductible_status_ind AS deductibleStatusInd,
+    cc.deductible_status_ind2 AS deductibleStatusInd2,
+    cc.deductible_applied_ingredient_cost_amt AS deductibleAppliedIngredientCostAmt,
+    cc.deductible_applied_dispense_fee_amt AS deductibleAppliedDispenseFeeAmt,
+    cc.deductible_applied_sales_tax_amt AS deductibleAppliedSalesTaxAmt,
+    cc.deductible_specific_amt AS deductibleSpecificAmt,
+    cc.mop_specific_amt AS mopSpecificAmt,
+    cc.mpp_specific_excluded_amt AS mppSpecificExcludedAmt,
+    cc.plan_maximum_specific_amt AS planMaximumSpecificAmt,
+    cc.member_deductible_applied_amt AS memberDeductibleAppliedAmt,
+    cc.plan_deductible_applied_amt AS planDeductibleAppliedAmt,
+    cee.accumulated_deductible_amt AS accumulatedDeductibleAmt,
+    cee.exceeding_period_benefit_maximum_amt AS exceedingPeriodBenefitMaximumAmt,
+    cee.remaining_benefit_amt AS remainingBenefitAmt,
+    ccbi.rxnova_component_id_data_json AS rxnovaComponentIdDataJson,
+    cc.postpay_ind3 AS postpayInd3,
+    cc.postpay_ind4 AS postpayInd4,
+    cc.alternate_business AS alternateBusiness
+FROM claim_core cc
+JOIN claim_extension_1 cee 
+    ON cc.customer_id = cee.customer_id 
+   AND cc.claim_id = cee.claim_id
+LEFT JOIN claim_component_block_information ccbi 
+    ON cc.customer_id = ccbi.customer_id 
+   AND cc.claim_id = ?
+WHERE cc.customer_id = ?
+
+select cc.member_deductible_plan_ind  from claimsprocess_other.claim_core cc where cc.claim_id = '257140011551';
+select * from 
+
+
+
+						   
+						   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

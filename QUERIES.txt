@@ -1,0 +1,71 @@
+select cc.claim_id, cc.customer_id, cc.client_id, cc.group_id, cc.used_external_group, cc.member_id from claimsprocess_humana.claim_core cc where
+				cc.customer_id = '544' and
+				cc.deductible_status_ind_2 = 'CB' 
+				order by cc.process_create_ts desc;
+			
+				--cc.customer_id = 320
+				--and 
+				--cc.deductible_status_ind_2 in ('A1','A2','B2','C3','CC','CB')
+				--cc.deductible_status_ind_2 = 'A1' 
+				--order by cc.process_create_ts desc;
+select * from claimsprocess_humana.claim_core cc;
+
+select * from claimsprocess_humana.claim_extension_2 ce2 where ce2.other_benefit_effective_begin_dt notnull  and ce2.other_benefit_effective_end_dt notnull
+			order by ce2.process_create_ts desc;
+		
+select * from claimsprocess_humana.claim_extension_1 ce1 where ce1.claim_id ='264440000991';
+select * from claimsprocess_humana.claim_extension_2 ce2 where ce2.claim_id ='264440000991';
+select * from claimsprocess_humana.claim_core cc where cc.claim_id ='264440000991';
+
+SELECT * FROM claimsprocess_humana.claim_core WHERE claim_id = '264440001521' AND customer_id = 319 AND client_id = 9999;
+
+SELECT * FROM claimsprocess.claimsprocess_humana.claim_core cc left join 
+				claimsprocess.claimsprocess_humana.claim_extension_1 ce on
+				cc.customer_id = ce.customer_id
+				and cc.claim_id = ce.claim_id
+				and cc.domani_ind = 'true'
+				and cc.member_gender != ' '
+				and cc.alternate_business not in ('Q','R')
+				and ce.other_coverage_cd not in ('2','4','8')
+				and cc.cob_ind not in ('2','4','8')
+				and cc.compound_cd = 0
+				and cc.npi_pharmacy_id Is Not Null
+				where cc.customer_id ='319'
+				and cc.process_create_by_program_id = 'POS'
+				and cc.claim_status_cd = '10'
+				order by cc.process_create_ts desc limit 1;
+			
+select * from claimsprocess_humana.t_claim_core tcc where claim_status_cd = '10';
+
+SELECT 
+    cc.customer_id AS customerId,
+    cc.claim_id AS claimId,
+    ccp.ingredient_cost_basis_cd AS ingredientCostBasisCd,
+    ccp.ingredient_cost_amt AS ingredientCostAmt,
+    ccp.ingredient_id AS ingredientId,
+    ccp.compound_product_id_type_cd AS compoundProductIdTypeCd,
+    ccp.plan_ingredient_cost_amt AS planIngredientCostAmt,
+    ccp.ingredient_quantity_cnt AS ingredientQuantityCnt,
+    ccp.ingredient_postpay_ind_3 AS ingredientPostpayInd3,
+    ccp.ingredient_postpay_ind_4 AS ingredientPostpayInd4,
+    ccp.claim_compound_product_sequence_id AS claimCompoundProductSequenceId
+FROM 
+    claim_core cc
+ JOIN 
+    claim_compound_product ccp
+    ON cc.customer_id = ccp.customer_id
+    AND cc.claim_id = ccp.claim_id
+LEFT JOIN 
+    claim_compound_client_pricing ccpp
+    ON ccp.customer_id = ccpp.customer_id
+    AND ccp.claim_id = ccpp.claim_id
+    AND ccp.claim_compound_product_sequence_id = ccpp.claim_compound_product_sequence_id
+LEFT JOIN 
+    claim_compound_ndc_details cnd
+    ON ccp.customer_id = cnd.customer_id
+    AND ccp.claim_id = cnd.claim_id
+    AND ccp.claim_compound_product_sequence_id = cnd.claim_compound_product_sequence_id
+WHERE 
+    cc.customer_id = 319 and cc.claim_id = '266360008701'
+ORDER BY 
+    ccp.claim_compound_product_sequence_id;

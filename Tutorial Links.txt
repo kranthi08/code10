@@ -1,0 +1,130 @@
+Code Decode - Java 8 New Features Interview Questions And Answers (Live Demo) Part 1 And Part 2
+	    - Java Design Patterns Interview Questions[ Most Asked Design Pattern Interview
+	    - Top Core java interview Questions 
+	    - Java 8 Stream Interview Questions
+	    - Java Collection framework interview questions
+            - Equals and Hash code contract
+	    - Exception Handling Interview Questions
+	    - Parallel streams Intro || stream processing interview questions and answers java8
+
+==================================================================
+Joe James - Java 8 Streams Tutorials Streams Filters Map Reduce
+
+=================================================================
+
+Byte programming - Java 8 Interview Questions / Interview Preparation
+
+=======================================================================
+
+Automation Step ByStep - How to add Eclipse project to GitHub, How to commit, Push, Pull, from Eclipse to Git Hub
+
+=====================================================================
+
+Test Case Design Technique - SoftwaretestingbyMKT
+
+=====================================================================
+
+Brain Faster - Remote Git Server and Merging : Git & Eclipse
+
+=======================================================================
+Python - https://www.youtube.com/watch?v=S3FInln9liU
+
+========================================================================
+https://www.youtube.com/watch?v=SQOFGv-jCRo&list=PLFGoYjJG_fqqVLpTONi1gl-BitH_zvNbW - Selenium Interview Questions by Naveen
+
+
+Rest Assured API - 
+
+
+====================================================================================
+SDET- QA Automation Techie
+==================================================================================================
+https://www.youtube.com/watch?v=yDdBOspPp_c&list=PLUDwpEzHYYLuMRzT6LFq4r8DwKZdcqHmY - Completed
+
+https://www.youtube.com/watch?v=dl2y2Gtjemg - Not  Completed
+
+====================================================================================
+Mukesh otwani
+==================================================================================================
+https://www.youtube.com/watch?v=aqrxDxumKZQ&list=PL6flErFppaj08LFolWioWyjfSGtCWcvVp - Rest Assured
+
+https://www.youtube.com/watch?v=MCPdfuzmyxY&list=PL6flErFppaj1gBVlGy8Lz5VpHkCfkFOXn - Postman
+
+====================================================================================
+Automation Step by Step
+====================================================================================
+https://www.youtube.com/watch?v=oVNbaBlrhbo&list=PLhW3qG5bs-L8xPrBwDv66cTMlFNeUPdJx
+
+https://www.youtube.com/watch?v=JJ7Tp7_fX4c&list=PLhW3qG5bs-L8dDZPP1tpQldU4tzZdPfRv
+
+
+The Testing Academy
+===================
+https://www.youtube.com/watch?v=z3Zty_aX7ZI&list=PL8VbCbavWfeE5aEeEpoXp2xiHi5K_7BMT
+
+Tools QA - Destination for QA professionals
+=====================================================================================
+https://www.youtube.com/watch?v=25NAEM9Y6NY&list=PLbwZ_0ncMaxhB43YQKv9SjyrfbZCOYxX3
+
+
+
+================================== Postman Beginner's Course - API Testing =======================
+freecodecamp.org
+https://www.youtube.com/watch?v=VywxIQ2ZXw4
+
+https://www.youtube.com/watch?v=GZvSYJDk-us - APIs for Beginners - How to use an API (Full Course / Tutorial)
+
+https://github.com/craigsdennis/intro-to-apis-course/blob/master/course-notes.md
+
+======================================= Jenkins ===================================================
+https://www.youtube.com/watch?v=FX322RVNGj4
+
+================================= Intellipaat Youtube Channel
+
+==================================SimplyLearn Youtube Channel
+
+================================== Log2Base2
+
+==== coding with john java you tube channel
+
+Git in 6 Hrs Training - https://www.youtube.com/watch?v=LIhE7L__E6M
+
+Git in 5 Hrs https://www.youtube.com/watch?v=KMOmw19ZCGs - Edureka
+
+Docker Tutorial for Beginners [FULL COURSE in 3 Hours] - https://www.youtube.com/watch?v=3c-iBn73dDE
+
+Kubernetes Tutorial for Beginners | Full In-depth Course in 3 Hours - https://www.youtube.com/watch?v=lXqqhyCPWC0
+
+Test Automation Stratagy - https://www.youtube.com/watch?v=h5_oi_I2WWs
+
+Design Patterns in Selenium - https://www.youtube.com/watch?v=FLmBqI3IKMA, https://www.youtube.com/watch?v=GaTVSm7zkLE
+			      https://www.youtube.com/watch?v=x2oM1K8uUII
+
+Typescript tutorial in 9 hours - https://www.youtube.com/watch?v=0N5snI08uRQ
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+DevOps Introduction in Telugu - https://www.youtube.com/watch?v=7ek_kdqhiFU&list=PLbMVPNscUopQlLWMkApr-H-YhO387P_lf
+
+AWS Cloud Practitioner | AWS Certified Cloud Practitioner - Full Course | AWS Training | Edureka - https://www.youtube.com/watch?v=XjPUyGKRjZs
+
+Kubernetes Tutorial for Beginners [FULL COURSE in 4 Hours] - https://www.youtube.com/watch?v=X48VuDVv0do
+
+Jenkins 2021 Masterclass | Step by Step for Beginners | Interview Questions | Raghav Pal | - https://www.youtube.com/watch?v=woMAXn4e8NA
+
+Google Cloud Platform Full Course | Google Cloud Platform Tutorial | Cloud Computing | Simplilearn - https://www.youtube.com/watch?v=dn9cSRImmVA
+
+Jenkins Full Course | Jenkins Tutorial For Beginners | Jenkins Tutorial | Simplilearn - https://www.youtube.com/watch?v=FX322RVNGj4
+
+DevOps Course | DevOps Training | DevOps Tools | Intellipaat - https://www.youtube.com/watch?v=U5W5HhNEI58
+
+DevOps Training | DevOps Course | DevOps Tutorial for Beginners | Intellipaat in 10H -https://www.youtube.com/watch?v=JHoy3lDZOfY
+
+AWS Course | AWS Training | Free AWS Full Course | AWS Tutorial For Beginners | Intellipaat - https://www.youtube.com/watch?v=E7pwMQE3arA
+
+
+spring boot micro service project in 6 hrs - Programming techie
+
+Jmeter - https://www.youtube.com/watch?v=SoW2pBak1_Q by Raghav
+
+cloud computing - https://www.youtube.com/watch?v=gIWel4gFZaY

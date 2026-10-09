@@ -1,0 +1,26 @@
+Git is a version control system for tracking changes in computer files. It is generally used for source code management in software development.
+
+- git is used to track changes in source code
+
+- Distributed version control tool used for source code management.
+
+- Allows multiple developers to work together.
+
+
+link the git to git hub account
+------------------------------------------------------------------
+GitHub is a GIT repository hosting service, which provides a web-based graphical interface.
+GitHub helps every team member to work together on the project from anywhere and makes it easy for them to collaborate.
+
+Features:-
+1. Easy project management:-
+   GitHub is one place where project managers and developers coorinate, track and update their work so projects stay transparent and on schedule.
+
+2. Increased safety with packages
+
+
+
+
+
+
+

@@ -1,0 +1,69 @@
+Job description
+Job description
+
+Evolutyz & you
+
+We take pride in building a culture that fosters innovation, learning, and creativity while having fun at work. We are probably the only IT company that says experience the awesome! We are ranked one the best workplaces; 99.6% of our employees rated us 10/10 and honored as the fastest-growing company for four years. At Evolutyz, we dont say its a job we call it a rewarding career. Join us and let us get there together.
+
+From what's now to what's next
+
+After mastering in AppDev, Mobility, BI/ Analytics, and ERP, we are now embracing open source, adopting AIOps/ DevSecOps and pioneering in codeless automation, cloud strategy, and deep tech. We don't just code, test, and deploy, we build mission-critical applications and enable the digital transformation of Fortune 500 enterprises. Be a changemaker at Evolutyz.
+
+Job Responsibilities:
+
+Develop and maintain automation framework for Web Service testing
+Develop and maintain automation framework(s) across multiple platforms (mobile & web)
+Automate & Execute Test Cases and Test Suites
+Ability to troubleshoot and analyze different types of test automation issues/failures
+Exposure to development builds using Continuous Integration (CI) and Continuous Deployment (CD)
+Ability to work independently
+Experience preparing test automation status for different stakeholders
+Exposure to Behavior Driven Development (BDD)
+Experience analyzing business requirements and functional specifications
+Good communication skills
+Collaborate with QA leadership to architect, establish and evolve QA processes
+Ensure all projects meet both functional and non-functional requirements and map to QA test cases
+Partner closely with the engineering teams to replicate and resolve issues
+Job Requirements: 
+
+Minimum 7 years industry experience, preferably in an Agile development environment
+Minimum 3 years of experience testing microservices (automation preferred with Karate)
+Minimum 3 years of experience with Web automation using Selenium
+Minimum 2 years of experience with Mobile automation (iOS and Android), Appium
+Minimum 2 years of Java (preferably Spring Framework) development.
+Experience in testing eCommerce websites
+Experience with test tool sets/frameworks - Cucumber/Gherkin, Selenium web driver, Maven
+Experience with automated testing tools (Selenium Web driver with Nodejs and JAVA)
+Version control tools - Jenkins, Maven, Git
+Experience with executing tests on cloud platforms such as BrowserStack, SauceLabs
+Experience working with databases and various data formats and related technologies for testing.
+Experience with defect tracking tools (PractiTest, JIRA, Bugzilla, etc.)
+Evolutyz story
+
+We are a leading next-generation IT products, platforms, and services company delivering guaranteed business outcomes, seamless customer experience, actionable insights, and IP-led digital transformation. We bring unparalleled knowledge of domains, markets, and technology platforms, to enable our clients to realize their business goals. We are building a workplace where teams are diverse, competitive, and continually searching for tomorrow's platform and the minds to create it. Whether you are a recent grad or an experienced consultant, Evolutyz offers you the kind of learning opportunities and professional satisfaction that enriches your professional career and growth. Evolutyz prioritizes employee well-being and rewards performance indiscriminately. We believe healthy employer-employee relationships make the world a better place--as does offering top-notch IT services.
+
+Revolution - Invention - Discovery, experience limitless possibilities at Evolutyz.
+
+Benefits
+
+We are built on the employee's first value system. While the world was battling the deadly COVID virus, we rolled up our sleeves to help the local community (read to know more). While the industry was talking about laying off employees and cutting costs, our finance and accounts team were busy calculating employee bonuses and annual appraisals.
+
+------------------------------------------------------------------------------------------------------------------------
+Job Description
+
+Experience in Automation (Selenium & Core JAVA) Mandatory Required
+
+
+Hands on experience Java knowledge - Mandatory Required
+
+
+Experience in API Automation/ API Testing - Mandatory Required
+
+
+Experience in BDD frame work(Cucumber/J behave/Maven) - Mandatory Required
+
+
+Must have selenium web driver hands on experience - Mandatory Required
+
+
+Scripts and their execution, knowledge of test automation frameworks, e.g. Selenium - Mandatory Required

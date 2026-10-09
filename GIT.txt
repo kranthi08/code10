@@ -1,0 +1,91 @@
+
+====================================================================
+
+We can configure GIT with GIT HUB
+=================================
+While configure GIT with GIT HUB, we have to see the values in the below 3 sections
+
+1. global
+2. system
+3. local
+
+
+If we want to see the values in the global section in the form a file, use the below command
+>> git config --global -e
+
+In this global section we can see user details
+If the user details are not available in that file, we can add it manually. First quit from file editable mode and go back to command prompt.
+
+Then use the below command: 
+>>$ git config --global user.name = "Kranthi Kumar"
+
+Then go back to file editable mode and see the updated user name
+
+>>$ git config --global user.email = "Kranthi Kumar"
+if we want update the user email, then use the above command
+
+After viewing the content then use (:q) to quit that file from editable mode and go back to the command prompt.
+
+clear
+=====
+if we want to clear the data in the command prompt use the below command
+
+>>$ clear
+
+configuration list
+==================
+if we want to see the configuration list use the below command
+>>$ git config --list
+
+Configure Notepad++ with GIT
+=============================
+First add the notepad++ path into the system environment variable path
+
+Then verify the command >>$ notepad++
+then it opens a new notepad++ file, if we want to open new notepad++ with our required name use the below command
+>>$ notepad++ myNewFileName
+
+=========================================================
+While opening the Notepad++, we have to use the command notepad++ every time. So if we want to use short form for notepad++ like npp, 
+then we have to use alias command in .bash_profile file.
+So first we have to open the .bash_profile file using the command >>$ notepad++ .bash_profile
+Then it opens .bash_profile file in notepad++ edit mode
+Then press Enter and go to 2nd line
+And input the below command >>$ alias npp="notepad++.exe -multiInst -nosession"
+save and exit from that notepadd++ file and go back to gitbash command prompt
+
+==============================================================================
+Making notepad++ as default editor in windows
+==============================================================================
+
+- >>$ git config --global core.editor "notepad++.exe -multiInst - nosession"
+- >>$ git config --global --list
+- >>$ git config --global -e
+
+===============================================================================
+GIT Workflow
+===============================================================================
+Basic terms in GIT
+
+- Commit
+- Clone
+- tracked / untracked files
+- Branch
+
+Commit:-
+--------
+
+Commit the changes
+
+Clone:
+------
+
+Exact copy of the code - copy the code
+
+Tracking / UnTracking:
+----------------------
+All the trackings was stored in the .git file or folder
+
+
+
+
