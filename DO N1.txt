@@ -1,0 +1,13 @@
+D0 - N1 template development - 
+
+Mandatory Segments - Header, Insurance, Claim 
+
+Optional Segments - Patient, Pricing, Pharmacy provider,prescriber, worker compensation, DUR, clinical
+
+Not Used - COB, Coupon, Compound, Additional documentation, Facility, Narrative, Prior Authorization
+
+completed segments
+
+Header
+insurance
+patient
