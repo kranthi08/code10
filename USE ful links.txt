@@ -1,0 +1,7 @@
+https://www.allsechro.com/SSCFINTECH/common/Logout.aspx?e=SE
+
+https://atwork.morganstanley.com/solium/servlet/userLogin
+
+https://wd1-identity.myworkday.com/wday/authgwy/ssctech/upc/login
+
+https://app.aifortechies.in/login
