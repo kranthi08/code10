@@ -1,0 +1,71 @@
+1. Install node.js if required
+2. Install VS Code editor if required
+3. Launch VS code editor and check whether Node.js and npm was installed or not.
+4. Go to terminal and type node -v, if it shows node.js version, then node.js was installed successfully in our system
+5. Go to terminal and type npm -v, if it shows the npm version, then npm was installed successfully in our system.
+6. Create folder in our drive. Open the same folder through vs code editor.Then
+7. Install playwright using a command: Goto terminal and type npm init playwright@latest and hit enterKey.
+8. It will automatically install the latest playwright into our system.
+9. It will create package.json file for project structure like project object model file like pom.xml file in selenium.
+10. It will create the project configuration setup in playwright.config.js file. This file contains the all project configuration.
+    like what are the browsers that we are using, and about test script execution structure like serial wise or parallel.
+
+============================================================================================================================
+writing script and executing script:
+============================================================================================================================
+
+1. we can write scripts using 2 ways a) writing script using playwright code generator like record the script using actions.
+   later we can run the same recorded script
+2. write the script manully in our way.
+
+if we want to run all the scripts use the below command:
+npx playwright test
+
+if we want run the specific test use the below command:
+npx playwright test simpletest.spec.js
+
+By default playwright will execute all the scripts in headless mode.
+if we want to run our specific scripts in headed mode use the below command
+npx playwright test simpletest.spec.js --headed
+
+Bydefault playwright will execute all the scripts in chrome,firefox,safari which configured in config.js file 
+if we want to run our test in a specific browser use the below command.
+npx playwright test simpletest.spec.js --project=chromium --headed
+
+if we want run our test in debug mode, use the below command
+npx playwright test simpletest.spec.js --project=chromium --headed --debug
+
+if we want to display the generated reports:
+npx playwright show-report
+
+-------------------------------------------------------------------------------------------------------------------------
+Locating elements in playwright:
+--------------------------------
+1. using property
+2. using x-path
+3. using css selector
+
+Locating single element:
+Link/Button:
+-----------------------
+await page.locator('locator').click();
+await page.click('locator')
+
+Input box:-
+--------------
+await page.locator('locator').fill(value);
+await page.locator('locator').type(value);
+
+await page.fill('locator', value);
+await page.type('locator',value);
+
+--------------------------------------------------
+locate multiple web elements:
+------------------------------
+const elements = await page.$$(locator)
+
+
+
+
+
+
